@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	color: #000;
+	margin: 0;
+}
+.container {
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 5%;
+}
+header#navigation {
+	width: 100%;
+	background: rgb(5, 3, 41);
+	background: linear-gradient(
+		180deg,
+		rgba(5, 3, 41, 1) 0%,
+		rgba(27, 28, 0, 1) 100%
+	);
+	font-family: "Noto Sans JP", sans-serif;
+	display: flex;
+	justify-content: center;
+}
+header#navigation a {
+	color: yellow;
+	padding: 10px 25px;
+	text-decoration: none;
+	font-weight: 600;
+}
