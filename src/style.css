@@ -4,6 +4,13 @@
 body {
 	color: #000;
 	margin: 0;
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hyades.jpg/1280px-Hyades.jpg");
+	font-family: "Noto Sans JP", sans-serif;
+	font-size: 14px;
+}
+h1 {
+	color: yellow;
+	margin-bottom: 50px;
 }
 .container {
 	width: 80%;
@@ -18,7 +25,6 @@ header#navigation {
 		rgba(5, 3, 41, 1) 0%,
 		rgba(27, 28, 0, 1) 100%
 	);
-	font-family: "Noto Sans JP", sans-serif;
 	display: flex;
 	justify-content: center;
 }
@@ -27,4 +33,48 @@ header#navigation a {
 	padding: 10px 25px;
 	text-decoration: none;
 	font-weight: 600;
+}
+
+.list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.person {
+	background-color: #000;
+	border: 2px solid #e8e156;
+	border-radius: 5px;
+	margin-bottom: 2%;
+	padding: 10px;
+	flex: 0 1 49%;
+	color: yellow;
+	transition: 0.3s all ease;
+	cursor: pointer;
+}
+.person:hover {
+	box-shadow: 0px 0px 10px 0px yellow;
+}
+.person h3 {
+	margin-top: 0;
+	font-size: 25px;
+}
+.person ul {
+	margin-bottom: 0;
+	padding-left: 0;
+	margin-top: 3px;
+}
+.person span {
+	display: block;
+	font-size: 10px;
+	opacity: 0.7;
+}
+.infos {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.infos p {
+	font-size: 14px;
+	flex: 0 1 50%;
+	margin: 0 0 6px 0;
 }
