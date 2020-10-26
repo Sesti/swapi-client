@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Person from "./Person";
+import Starship from "./Starship";
 import Pagination from "./Pagination";
 import { Link } from "@reach/router";
 
-const PeopleList = ({ page: paged }) => {
-	const [people, setPeople] = useState([]);
+const StarshipList = ({ page: paged }) => {
+	const [starships, setStarships] = useState([]);
 	const [next, setNext] = useState("");
 	const [previous, setPrevious] = useState("");
 	const [page, setPage] = useState(0);
@@ -22,14 +22,14 @@ const PeopleList = ({ page: paged }) => {
 	useEffect(() => {
 		if (page === 0) return;
 
-		fetch(`http://localhost:4321/api/v1/people/${page}`)
+		fetch(`http://localhost:4321/api/v1/starships/${page}`)
 			.then(res => res.json())
 			.then(res => {
 				if (res.status == "none") {
 					setError(true);
 				} else {
 					setLoading(false);
-					setPeople(res.persons);
+					setStarships(res.starships);
 					setNext(res.next);
 					setPrevious(res.previous);
 					setError(false);
@@ -45,10 +45,10 @@ const PeopleList = ({ page: paged }) => {
 	if (error) {
 		return (
 			<div>
-				<h1>List of people</h1>
+				<h1>List of starships</h1>
 				<div className="list">
 					<h1>
-						Loading error... <Link to="/people/1">Back to list</Link>
+						Loading error... <Link to="/starships/1">Back to list</Link>
 					</h1>
 				</div>
 			</div>
@@ -58,7 +58,7 @@ const PeopleList = ({ page: paged }) => {
 	if (loading) {
 		return (
 			<div>
-				<h1>List of people</h1>
+				<h1>List of starships</h1>
 				<div className="list">
 					<h1>Loading...</h1>
 				</div>
@@ -68,32 +68,29 @@ const PeopleList = ({ page: paged }) => {
 
 	return (
 		<div>
-			<h1>List of people</h1>
+			<h1>List of starships</h1>
 			<div className="list">
-				{people.length === 0 ? (
-					<h1>No people found</h1>
+				{starships.length === 0 ? (
+					<h1>No starship found</h1>
 				) : (
-					people.map(person => (
-						<Person
-							key={person.name.replace(/-\s/g, "")}
-							name={person.name}
-							gender={person.gender}
-							starships={person.starships}
-							hairColor={person.hairColor}
-							skinColor={person.skinColor}
-							eyeColor={person.eyeColor}
+					starships.map(starship => (
+						<Starship
+							key={starship.name.replace(/-\s/g, "")}
+							name={starship.name}
+							model={starship.model}
+							starshipClass={starship.starship_class}
 						/>
 					))
 				)}
 			</div>
 			<Pagination
 				onClick={changePage}
+				type="starships"
 				next={next}
-				type="people"
 				previous={previous}
 			/>
 		</div>
 	);
 };
 
-export default PeopleList;
+export default StarshipList;

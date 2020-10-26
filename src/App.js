@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
 import { Link, Router } from "@reach/router";
-import PeoplesList from "./PeopleList";
+import PeopleList from "./PeopleList";
+import PlanetList from "./PlanetList";
+import StarshipList from "./StarshipList";
 
 const App = () => {
-	let Planets = () => <div path="/planets">planets</div>;
-	let Starships = () => <div path="/starships">starships</div>;
 	let Someone = () => <div path="/someone">someone</div>;
 
 	return (
@@ -18,10 +18,12 @@ const App = () => {
 			</header>
 			<div className="container">
 				<Router>
-					<PeoplesList path="/people" />
-					<PeoplesList path="/people/:page" />
-					<Planets path="/planets" />
-					<Starships path="/starships" />
+					<PeopleList path="/people" />
+					<PeopleList path="/people/:page" />
+					<PlanetList path="/planets" />
+					<PlanetList path="/planets/:page" />
+					<StarshipList path="/starships" />
+					<StarshipList path="/starships/:page" />
 					<Someone path="/someone" />
 				</Router>
 			</div>

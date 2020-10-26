@@ -41,7 +41,8 @@ header#navigation a {
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
-.person {
+.person,
+.planet {
 	background-color: #000;
 	border: 2px solid #e8e156;
 	border-radius: 5px;
@@ -52,18 +53,22 @@ header#navigation a {
 	transition: 0.3s all ease;
 	cursor: pointer;
 }
-.person:hover {
+.person:hover,
+.planet:hover {
 	box-shadow: 0px 0px 10px 0px yellow;
 }
-.person h3 {
+.person h3,
+.planet h3 {
 	margin-top: 0;
 	font-size: 25px;
 }
-.person ul {
+.person ul,
+.planet ul {
 	margin-bottom: 0;
 	padding-left: 0;
 	margin-top: 3px;
 }
+.planet span,
 .person span {
 	display: block;
 	font-size: 10px;

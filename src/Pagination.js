@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-const Pagination = ({ next, previous, onClick }) => {
+const Pagination = ({ next, previous, onClick, type }) => {
 	const isValidNext = next != null && next != "";
 	const isValidPrev = previous != null && previous != "";
 
@@ -10,7 +10,7 @@ const Pagination = ({ next, previous, onClick }) => {
 			<Link
 				onClick={changePage}
 				data-page={next.replace(/\D/gi, "")}
-				to={`/people/${next.replace(/\D/gi, "")}`}
+				to={`/${type}/${next.replace(/\D/gi, "")}`}
 			>
 				Next &gt;
 			</Link>
@@ -24,7 +24,7 @@ const Pagination = ({ next, previous, onClick }) => {
 			<Link
 				onClick={changePage}
 				data-page={previous.replace(/\D/gi, "")}
-				to={`/people/${previous.replace(/\D/gi, "")}`}
+				to={`/${type}/${previous.replace(/\D/gi, "")}`}
 			>
 				&lt; Previous
 			</Link>

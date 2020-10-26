@@ -1,4 +1,5 @@
 import React from "react";
+import Starship from "./StarshipItem";
 
 const Person = ({
 	name,
@@ -38,7 +39,7 @@ const Person = ({
 					<li>No starships</li>
 				) : (
 					starships.map(starship => (
-						<li key={starship.replace(/\D/gi, "")}>{starship}</li>
+						<Starship key={starship.replace(/\D/gi, "")} url={starship} />
 					))
 				)}
 			</ul>

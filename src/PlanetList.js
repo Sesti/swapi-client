@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Person from "./Person";
+import Planet from "./Planet";
 import Pagination from "./Pagination";
 import { Link } from "@reach/router";
 
 const PeopleList = ({ page: paged }) => {
-	const [people, setPeople] = useState([]);
+	const [planets, setPlanets] = useState([]);
 	const [next, setNext] = useState("");
 	const [previous, setPrevious] = useState("");
 	const [page, setPage] = useState(0);
@@ -22,14 +22,14 @@ const PeopleList = ({ page: paged }) => {
 	useEffect(() => {
 		if (page === 0) return;
 
-		fetch(`http://localhost:4321/api/v1/people/${page}`)
+		fetch(`http://localhost:4321/api/v1/planets/${page}`)
 			.then(res => res.json())
 			.then(res => {
 				if (res.status == "none") {
 					setError(true);
 				} else {
 					setLoading(false);
-					setPeople(res.persons);
+					setPlanets(res.planets);
 					setNext(res.next);
 					setPrevious(res.previous);
 					setError(false);
@@ -45,10 +45,10 @@ const PeopleList = ({ page: paged }) => {
 	if (error) {
 		return (
 			<div>
-				<h1>List of people</h1>
+				<h1>List of planets</h1>
 				<div className="list">
 					<h1>
-						Loading error... <Link to="/people/1">Back to list</Link>
+						Loading error... <Link to="/planets/1">Back to list</Link>
 					</h1>
 				</div>
 			</div>
@@ -58,7 +58,7 @@ const PeopleList = ({ page: paged }) => {
 	if (loading) {
 		return (
 			<div>
-				<h1>List of people</h1>
+				<h1>List of planets</h1>
 				<div className="list">
 					<h1>Loading...</h1>
 				</div>
@@ -68,28 +68,27 @@ const PeopleList = ({ page: paged }) => {
 
 	return (
 		<div>
-			<h1>List of people</h1>
+			<h1>List of planets</h1>
 			<div className="list">
-				{people.length === 0 ? (
-					<h1>No people found</h1>
+				{planets.length === 0 ? (
+					<h1>No planet found</h1>
 				) : (
-					people.map(person => (
-						<Person
-							key={person.name.replace(/-\s/g, "")}
-							name={person.name}
-							gender={person.gender}
-							starships={person.starships}
-							hairColor={person.hairColor}
-							skinColor={person.skinColor}
-							eyeColor={person.eyeColor}
+					planets.map(planet => (
+						<Planet
+							key={planet.name.replace(/-\s/g, "")}
+							name={planet.name}
+							diameter={planet.diameter}
+							gravity={planet.gravity}
+							climate={planet.climate}
+							population={planet.population}
 						/>
 					))
 				)}
 			</div>
 			<Pagination
 				onClick={changePage}
+				type="planets"
 				next={next}
-				type="people"
 				previous={previous}
 			/>
 		</div>
