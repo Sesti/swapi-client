@@ -33,6 +33,7 @@ header#navigation a {
 	padding: 10px 25px;
 	text-decoration: none;
 	font-weight: 600;
+	font-size: 18px;
 }
 
 .list {
@@ -77,4 +78,25 @@ header#navigation a {
 	font-size: 14px;
 	flex: 0 1 50%;
 	margin: 0 0 6px 0;
+}
+.pagination {
+	color: yellow;
+	padding: 50px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.pagination span,
+.pagination a {
+	font-size: 18px;
+	text-decoration: none;
+	background: #000;
+}
+.pagination a:visited,
+.pagination a:active {
+	color: yellow;
+}
+.pagination span {
+	opacity: 0.5;
+	cursor: not-allowed;
 }

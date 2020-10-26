@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { render } from "react-dom";
 import { Link, Router } from "@reach/router";
 import PeoplesList from "./PeopleList";
@@ -11,14 +11,15 @@ const App = () => {
 	return (
 		<React.StrictMode>
 			<header id="navigation">
-				<Link to="/">Peoples</Link>
+				<Link to="/people">Peoples</Link>
 				<Link to="/planets">Planets</Link>
 				<Link to="/starships">Starships</Link>
 				<Link to="/someone">Search for someone</Link>
 			</header>
 			<div className="container">
 				<Router>
-					<PeoplesList path="/" />
+					<PeoplesList path="/people" />
+					<PeoplesList path="/people/:page" />
 					<Planets path="/planets" />
 					<Starships path="/starships" />
 					<Someone path="/someone" />
