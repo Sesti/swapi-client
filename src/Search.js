@@ -4,7 +4,6 @@ import Person from "./Person";
 const Search = () => {
 	const [search, setSearch] = useState("");
 	const [results, setResults] = useState([]);
-	const [loading, setLoading] = useState(true);
 
 	async function searchPerson() {
 		const data = await fetch(`http://localhost:4321/api/v1/search/${search}`);

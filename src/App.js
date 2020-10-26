@@ -10,10 +10,10 @@ const App = () => {
 	return (
 		<React.StrictMode>
 			<header id="navigation">
+				<Link to="/">Search for someone</Link>
 				<Link to="/people">Peoples</Link>
 				<Link to="/planets">Planets</Link>
 				<Link to="/starships">Starships</Link>
-				<Link to="/search">Search for someone</Link>
 			</header>
 			<div className="container">
 				<Router>
@@ -23,7 +23,7 @@ const App = () => {
 					<PlanetList path="/planets/:page" />
 					<StarshipList path="/starships" />
 					<StarshipList path="/starships/:page" />
-					<Search path="/search" />
+					<Search path="/" />
 				</Router>
 			</div>
 		</React.StrictMode>
