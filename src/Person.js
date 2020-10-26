@@ -32,17 +32,21 @@ const Person = ({
 					{skinColor}
 				</p>
 			</div>
-			<br />
-			<span>Starships</span>
-			<ul>
-				{starships.length === 0 ? (
-					<li>No starships</li>
-				) : (
-					starships.map(starship => (
-						<Starship key={starship.replace(/\D/gi, "")} url={starship} />
-					))
-				)}
-			</ul>
+			{starships != null ? (
+				<div>
+					<br />
+					<span>Starships</span>
+					<ul>
+						{starships.length === 0 ? (
+							<li>No starships</li>
+						) : (
+							starships.map(starship => (
+								<Starship key={starship.replace(/\D/gi, "")} url={starship} />
+							))
+						)}
+					</ul>
+				</div>
+			) : null}
 		</div>
 	);
 };

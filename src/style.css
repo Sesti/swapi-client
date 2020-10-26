@@ -105,3 +105,34 @@ header#navigation a {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
+#search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	min-height: 200px;
+}
+#search form {
+	display: flex;
+}
+#search input[type="text"] {
+	font-size: 25px;
+	padding: 5px;
+	font-family: "Noto Sans JP", sans-serif;
+}
+#search button[type="submit"] {
+	border: 3px solid #e8e156;
+	color: yellow;
+	background: none;
+	font-size: 20px;
+	padding: 8px 20px;
+	margin-top: 0px;
+}
+#search .list {
+	flex: 0 1 100%;
+	margin-top: 50px;
+}
+#search .list h1 {
+	width: 100%;
+	text-align: center;
+}

@@ -4,17 +4,16 @@ import { Link, Router } from "@reach/router";
 import PeopleList from "./PeopleList";
 import PlanetList from "./PlanetList";
 import StarshipList from "./StarshipList";
+import Search from "./Search";
 
 const App = () => {
-	let Someone = () => <div path="/someone">someone</div>;
-
 	return (
 		<React.StrictMode>
 			<header id="navigation">
 				<Link to="/people">Peoples</Link>
 				<Link to="/planets">Planets</Link>
 				<Link to="/starships">Starships</Link>
-				<Link to="/someone">Search for someone</Link>
+				<Link to="/search">Search for someone</Link>
 			</header>
 			<div className="container">
 				<Router>
@@ -24,7 +23,7 @@ const App = () => {
 					<PlanetList path="/planets/:page" />
 					<StarshipList path="/starships" />
 					<StarshipList path="/starships/:page" />
-					<Someone path="/someone" />
+					<Search path="/search" />
 				</Router>
 			</div>
 		</React.StrictMode>
